@@ -10,7 +10,7 @@ class WeatherApiClient {
 
     var response = await http.get(endpoint);
     var body = jsonDecode(response.body);
-    // Weather weather = Weather.fromJson(body);
+
     print(Weather.fromJson(body).cityName);
     return Weather.fromJson(body);
   }

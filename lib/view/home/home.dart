@@ -1,22 +1,23 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:weatherapp/controller/connectivity_provider.dart';
 import 'package:weatherapp/controller/weather_provider.dart';
-import 'package:weatherapp/view/widget/additional_information.dart';
+import 'package:weatherapp/view/home/widget/additional_information.dart';
 
-import '../widget/currentweather_widget.dart';
+import 'widget/currentweather_widget.dart';
 
 class HomePage extends StatelessWidget {
-  final WeatherProvider weatherProvider = WeatherProvider();
-
   HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // weatherProvider.getData('Kerala');
-
+    Provider.of<InternetConnectivityProvider>(context, listen: false)
+        .getInternetConnectivity(context);
+    print("not");
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 0, 0, 0),
         elevation: 0.0,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weatherapp/controller/connectivity_provider.dart';
 import 'package:weatherapp/controller/weather_provider.dart';
 
 import 'package:weatherapp/view/home/home.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => WeatherProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => InternetConnectivityProvider(),
         )
       ],
       child: MaterialApp(
